@@ -24,13 +24,13 @@ const InputForm = ({ formValues, setFormValues, countries, setCountries }) => {
       return;
     }
     const newCountry = {
-      id: new Date().getDate(),
+      id: new Date().getTime(),
       name: name,
       gold: +gold,
       silver: +silver,
       bronze: +bronze,
     };
-
+    console.log(newCountry);
     const addedCountry = countries.find((country) => country.name === name);
     // 정렬
     const sortedCountry = [...countries, newCountry].sort(
