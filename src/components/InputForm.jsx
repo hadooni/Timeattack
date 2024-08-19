@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-const InputForm = ({ formValues, setFormValues, countries, setCountries }) => {
+const InputForm = ({ countries, setCountries }) => {
+  const initFormValue = {
+    name: "",
+    gold: 0,
+    silver: 0,
+    bronze: 0,
+  };
+  const [formValues, setFormValues] = useState(initFormValue);
   const { name, gold, silver, bronze } = formValues;
 
   const handleChange = (e) => {
@@ -57,7 +64,7 @@ const InputForm = ({ formValues, setFormValues, countries, setCountries }) => {
       return;
     }
     const updateCountry = countries.map((country) => {
-      if (country.name === targetCountry.name) {
+      if (country.id === targetCountry.id) {
         return {
           ...country,
           gold: gold,
